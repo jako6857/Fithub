@@ -1,3 +1,4 @@
+[FitHup Svendeprøve - Rapport.pdf](https://github.com/user-attachments/files/31829610/FitHup.Svendeprove.-.Rapport.pdf)
 # Fithub
 
 Basisk mobile-first fitness app with an Express/Prisma API and React frontend.
