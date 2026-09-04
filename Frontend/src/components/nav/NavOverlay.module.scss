@@ -1,0 +1,115 @@
+@use "../../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #fff;
+  color: $color-text;
+  padding: $space-6 $space-6 $space-8;
+  display: flex;
+  flex-direction: column;
+  max-width: $app-max-width;
+  margin-inline: auto;
+  overflow-y: auto;
+}
+
+.closeButton {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: $color-text-muted;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: $space-2;
+}
+
+.nav {
+  margin-top: $space-8;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: $color-text;
+    font-size: $fs-lg;
+    font-weight: 700;
+    font-family: $font-heading;
+    cursor: pointer;
+    padding: 0;
+  }
+}
+
+.navLabel {
+  font-size: $fs-lg;
+  font-weight: 700;
+  font-family: $font-heading;
+  color: $color-text;
+}
+
+.loginForm {
+  margin-top: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  max-width: 14rem;
+
+  input {
+    padding: $space-3;
+    border: none;
+    border-radius: $radius-sm;
+    background: $color-bg-alt;
+    color: $color-text;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+}
+
+.fieldError {
+  color: $color-error;
+  font-size: $fs-xs;
+  margin-top: -$space-2;
+}
+
+.loginButton {
+  align-self: flex-start;
+  margin-top: $space-1;
+  background: $color-accent;
+  color: #fff;
+  border: none;
+  border-radius: $radius-lg;
+  padding: $space-2 $space-5;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-accent-dark;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.signupLink {
+  background: none;
+  border: none;
+  color: $color-text-muted;
+  font-size: $fs-sm;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: $space-2 0 0;
+  text-align: left;
+}

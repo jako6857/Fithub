@@ -1,0 +1,55 @@
+@use "variables" as *;
+
+@mixin app-shell {
+  width: 100%;
+  max-width: $app-max-width;
+  margin-inline: auto;
+  min-height: 100dvh;
+  position: relative;
+  background: $color-bg;
+
+  @media (min-width: $bp-md) {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin focus-ring {
+  outline: 3px solid rgba($color-accent, 0.5);
+  outline-offset: 2px;
+}
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+@mixin card-tap {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:active {
+      transform: none;
+    }
+  }
+}

@@ -1,4 +1,9 @@
 node_modules
+dist
+Frontend/node_modules
+Frontend/dist
+*.db
+prisma/*.db
 # Keep environment variables out of version control
 .env
 

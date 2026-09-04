@@ -1,0 +1,33 @@
+@use "../styles/variables" as *;
+
+.heroSkeleton {
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+}
+
+.body {
+  padding: $space-5 $space-4 $space-8;
+}
+
+.sectionHeading {
+  margin-top: $space-5;
+  font-size: $fs-base;
+}
+
+.scheduleRow {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  padding-bottom: $space-2;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: $space-3;
+}
+
+.description {
+  color: $color-text-muted;
+  font-size: $fs-sm;
+}
+
+.messagePad {
+  padding: $space-4;
+}

@@ -1,0 +1,202 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-body;
+  color: $color-text;
+  background: $color-bg-alt;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-heading;
+  line-height: 1.2;
+  margin: 0 0 $space-2;
+}
+
+h1 {
+  font-size: $fs-2xl;
+}
+h2 {
+  font-size: $fs-xl;
+}
+h3 {
+  font-size: $fs-lg;
+}
+
+p {
+  margin: 0 0 $space-3;
+}
+
+a {
+  color: $color-accent-dark;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+.app-shell {
+  @include app-shell;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border: none;
+  border-radius: $radius-sm;
+  padding: $space-3 $space-5;
+  font-weight: 600;
+  font-size: $fs-base;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+
+  &--primary {
+    background: $color-accent;
+    color: #fff;
+
+    &:hover {
+      background: $color-accent-dark;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: $color-text;
+    border: 1px solid $color-border;
+
+    &:hover {
+      background: $color-bg-alt;
+    }
+  }
+
+  &--danger {
+    background: transparent;
+    color: $color-error;
+    border: 1px solid $color-error;
+
+    &:hover {
+      background: rgba($color-error, 0.08);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--block {
+    width: 100%;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  margin-bottom: $space-4;
+
+  label {
+    font-size: $fs-sm;
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: $space-3;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-size: $fs-base;
+    background: $color-bg-alt;
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $color-error;
+    }
+  }
+
+  .field-error {
+    color: $color-error;
+    font-size: $fs-xs;
+  }
+}
+
+.status-message {
+  padding: $space-3 $space-4;
+  border-radius: $radius-sm;
+  font-size: $fs-sm;
+  margin-bottom: $space-4;
+
+  &--error {
+    background: rgba($color-error, 0.08);
+    color: $color-error;
+  }
+
+  &--success {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, $color-bg-alt 25%, #ececec 37%, $color-bg-alt 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: $radius-sm;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

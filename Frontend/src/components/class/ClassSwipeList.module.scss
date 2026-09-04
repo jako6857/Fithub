@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+
+.scroller {
+  display: flex;
+  gap: $space-3;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: $space-2;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+    width: 8.5rem;
+    flex-shrink: 0;
+  }
+
+  &.compact > * {
+    width: 6.25rem;
+  }
+}

@@ -1,0 +1,61 @@
+@use "../styles/variables" as *;
+
+.body {
+  padding: 0 $space-4 $space-6;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.details {
+  flex: 1;
+  color: $color-text;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.weekday {
+  font-size: $fs-xs;
+  color: $color-text-muted;
+  margin: 0 0 $space-1;
+}
+
+.name {
+  font-weight: 700;
+  margin: 0 0 $space-1;
+}
+
+.time {
+  color: $color-text-muted;
+  font-size: $fs-sm;
+}
+
+.empty {
+  padding-top: $space-6;
+  color: $color-text-muted;
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding-top: $space-3;
+}
+
+.skeletonRow {
+  height: 3.5rem;
+}

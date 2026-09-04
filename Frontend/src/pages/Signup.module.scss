@@ -1,0 +1,25 @@
+@use "../styles/variables" as *;
+
+.wrapper {
+  padding: $space-6 $space-4 $space-8;
+}
+
+.back {
+  border: none;
+  background: none;
+  font-size: $fs-lg;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: $space-4;
+}
+
+.subtitle {
+  color: $color-text-muted;
+  margin-bottom: $space-6;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+}

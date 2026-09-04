@@ -17,7 +17,11 @@ export const getRecords = async (req: Request, res: Response) => {
             id: true,
             name: true,
             description: true,
-            image: true,
+            image: {
+              select: {
+                url: true,
+              },
+            },
           },
         },
         ratings: {
@@ -44,7 +48,9 @@ export const getRecord = async (req: Request, res: Response) => {
       include: {
         user: {
           select: {
+            id: true,
             name: true,
+            description: true,
             image: {
               select: {
                 url: true,

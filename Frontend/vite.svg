@@ -1,0 +1,75 @@
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+
+export class ApiError extends Error {
+  constructor(message, status, payload) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+    this.payload = payload;
+  }
+}
+
+function getToken() {
+  return localStorage.getItem("fa_token");
+}
+
+function toUrlEncoded(obj) {
+  const params = new URLSearchParams();
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value !== undefined && value !== null) {
+      params.append(key, value);
+    }
+  });
+  return params;
+}
+
+export async function apiRequest(path, { method = "GET", body, auth = false, headers = {} } = {}) {
+  const finalHeaders = { ...headers };
+  let finalBody = body;
+
+  const isFormData = typeof FormData !== "undefined" && body instanceof FormData;
+  const isPlainObject =
+    body !== undefined && !isFormData && typeof body === "object" && body !== null;
+
+  if (isPlainObject) {
+    finalHeaders["Content-Type"] = "application/x-www-form-urlencoded";
+    finalBody = toUrlEncoded(body);
+  }
+
+  if (auth) {
+    const token = getToken();
+    if (token) {
+      finalHeaders["Authorization"] = `Bearer ${token}`;
+    }
+  }
+
+  let response;
+  try {
+    response = await fetch(`${BASE_URL}${path}`, {
+      method,
+      headers: finalHeaders,
+      body: finalBody,
+    });
+  } catch (networkError) {
+    throw new ApiError(
+      "Network error. Check your connection and try again.",
+      0,
+      networkError
+    );
+  }
+
+  let data = null;
+  const contentType = response.headers.get("content-type") || "";
+  if (contentType.includes("application/json")) {
+    data = await response.json().catch(() => null);
+  }
+
+  if (!response.ok) {
+    const message =
+      (data && (data.message || data.error)) ||
+      `Something went wrong (${response.status}). Please try again.`;
+    throw new ApiError(message, response.status, data);
+  }
+
+  return data;
+}

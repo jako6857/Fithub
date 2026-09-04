@@ -1,0 +1,18 @@
+@use "../../styles/variables" as *;
+
+.wrapper {
+  margin-top: $space-1;
+}
+
+.track {
+  height: 4px;
+  border-radius: 2px;
+  background: $color-border;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: $color-accent;
+  border-radius: 2px;
+}

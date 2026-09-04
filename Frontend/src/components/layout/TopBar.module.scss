@@ -1,0 +1,55 @@
+@use "../../styles/variables" as *;
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4 $space-4 $space-3;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: transparent;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+
+.title {
+  font-size: $fs-md;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.iconButton {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.overlay .iconButton {
+  color: #fff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+}
+
+.spacer {
+  width: 1.75rem;
+  flex-shrink: 0;
+}

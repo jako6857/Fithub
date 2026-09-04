@@ -1,0 +1,36 @@
+@use "../styles/variables" as *;
+
+.errorWrap {
+  padding: $space-4;
+}
+
+.heroSkeleton {
+  aspect-ratio: 4 / 5;
+  border-radius: $radius-md;
+}
+
+.heroFrame {
+  margin: 0 $space-5;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.listSection {
+  padding: $space-4 $space-5 $space-6;
+
+  h2 {
+    font-size: $fs-md;
+    margin-bottom: $space-3;
+  }
+}
+
+.skeletonRow {
+  display: flex;
+  gap: $space-3;
+}
+
+.skeletonCard {
+  width: 8.5rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}

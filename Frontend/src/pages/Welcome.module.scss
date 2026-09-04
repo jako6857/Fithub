@@ -1,0 +1,89 @@
+@use "../styles/variables" as *;
+
+.welcome {
+  height: 100dvh;
+  max-width: $app-max-width;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  background: $color-dark;
+  overflow: hidden;
+}
+
+.topImage {
+  flex: 58 1 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: $space-6 $space-5;
+  min-height: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%);
+  }
+}
+
+.headline {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.05;
+    margin-bottom: $space-3;
+  }
+}
+
+.taglineRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: $fs-base;
+  }
+}
+
+.taglineBar {
+  width: 1.75rem;
+  height: 2px;
+  background: #fff;
+  display: inline-block;
+}
+
+.bottomImage {
+  flex: 42 1 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: $space-5;
+  min-height: 0;
+}
+
+.startButton {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: rgba(240, 240, 240, 0.95);
+  color: $color-text;
+  padding: $space-4 $space-6;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  font-size: $fs-base;
+  cursor: pointer;
+
+  &:hover {
+    background: #fff;
+  }
+}
